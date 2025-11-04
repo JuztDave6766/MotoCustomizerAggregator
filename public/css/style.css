@@ -1,0 +1,106 @@
+/* Stile base */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+#app-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* ---------------------------------------------------- */
+/* SEZIONE VISUALIZZATORE (Il cuore del layering) */
+/* ---------------------------------------------------- */
+#visualizer {
+    flex: 2; /* Prende 2/3 dello spazio */
+    padding: 20px;
+    position: relative; /* Importante per posizionare i pulsanti */
+}
+
+#moto-layers-container {
+    /* Contenitore principale per l'impilamento */
+    position: relative; 
+    width: 100%;
+    /* Mantiene le proporzioni dell'immagine più grande */
+    aspect-ratio: 16 / 9; 
+    max-height: 500px; 
+}
+
+.moto-layer {
+    /* Tutte le immagini devono essere assolute e occupare lo stesso spazio */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    /* Assicura che la base sia sotto le parti */
+    z-index: 10; 
+}
+
+#base-moto {
+    z-index: 5; /* La base sta sotto tutti i layer delle parti */
+}
+
+/* Classi per la visibilità */
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+    z-index: 20; /* Le parti visibili vanno sopra la base */
+}
+
+/* ---------------------------------------------------- */
+/* SEZIONE CONTROLLI */
+/* ---------------------------------------------------- */
+#controls {
+    flex: 1; /* Prende 1/3 dello spazio */
+    padding: 20px;
+    border-right: 1px solid #ddd;
+}
+
+/* Stile per i pulsanti selettori di parti */
+#part-selectors button {
+    margin: 5px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Stile per i risultati di ricerca aggregati */
+#results-display {
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-height: 400px; /* Limita l'altezza */
+    overflow-y: auto; /* Aggiunge scroll se necessario */
+}
+
+.part-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 4px;
+}
+
+.part-card:hover {
+    background-color: #e9e9e9;
+}
+
+.part-card h4 {
+    margin: 0 0 5px 0;
+    color: #333;
+}

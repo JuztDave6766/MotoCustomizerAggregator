@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏍️ Moto Customizer Aggregator</title>
+    <link rel="stylesheet" href="public/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Costruisci la Tua Moto Perfetta</h1>
+    </header>
+
+    <div id="app-container">
+        
+        <aside id="controls">
+            <h2>Configurazione Base (Fase 1)</h2>
+            
+            <div class="control-group">
+                <label for="brand-select">Marca:</label>
+                <select id="brand-select" class="config-input">
+                    <option value="">Seleziona Marca...</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="model-select">Modello:</label>
+                <select id="model-select" class="config-input" disabled>
+                    <option value="">Seleziona Modello...</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="theme-select">Tema:</label>
+                <select id="theme-select" class="config-input">
+                    <option value="">Scegli Tema...</option>
+                </select>
+            </div>
+
+            <hr>
+
+            <h2>Selezione Parti (Fase 2)</h2>
+            <div id="results-display">
+                <p>Clicca sulla parte che vuoi modificare (es. Scarico) per avviare la ricerca aggregata!</p>
+            </div>
+            <div id="part-selectors">
+                <button class="part-selector" data-part="sella">Sella</button>
+                <button class="part-selector" data-part="scarico">Scarico</button>
+            </div>
+            <hr>
+
+            <h2>Report Finale (Fase 6)</h2>
+            <div id="final-report">
+                </div>
+        </aside>
+
+        <main id="visualizer">
+            <div id="moto-layers-container">
+                
+                <img id="base-moto" src="public/assets/moto_base.png" alt="Moto base" class="moto-layer visible">
+                
+                <img id="layer-sella" src="public/assets/sella_bobber.png" alt="Sella Custom" class="moto-layer hidden part-sella">
+                <img id="layer-scarico" src="public/assets/scarico_sportivo.png" alt="Scarico Sportivo" class="moto-layer hidden part-scarico">
+                
+            </div>
+            
+        </main>
+        
+    </div>
+
+    <script src="public/js/main.js"></script> 
+</body>
+</html>

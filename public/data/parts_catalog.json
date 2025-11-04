@@ -1,0 +1,53 @@
+{
+    "parts_catalog": [
+        {
+            "id": "sella_bobber_001",
+            "part_type": "sella",
+            "nome": "Sella Monoposto Bobber Vintage",
+            "descrizione": "Stile classico, pelle sintetica marrone.",
+            "costo": 150.00,
+            "peso_variazione": -1.5,
+            "tema_compatibile": ["bobber", "caferacer"],
+            "url_acquisto": "https://simulato.it/sella001",
+            "layer_id": "layer-sella-bobber-marron",
+            "layer_src": "public/assets/sella_bobber.png"
+        },
+        {
+            "id": "sella_sport_002",
+            "part_type": "sella",
+            "nome": "Sella Sportiva Racing Gel",
+            "descrizione": "Design ergonomico e cuciture rosse.",
+            "costo": 220.00,
+            "peso_variazione": 0.5,
+            "tema_compatibile": ["streetfighter", "sportivo"],
+            "url_acquisto": "https://simulato.it/sella002",
+            "layer_id": "layer-sella-sport-rossa",
+            "layer_src": "public/assets/sella_sportiva.png"
+        },
+        {
+            "id": "scarico_cromato_003",
+            "part_type": "scarico",
+            "nome": "Scarico Cromato Custom Tapered",
+            "descrizione": "Suono profondo e finitura a specchio.",
+            "costo": 380.00,
+            "peso_variazione": 3.0,
+            "tema_compatibile": ["custom", "touring"],
+            "url_acquisto": "https://simulato.it/scarico003",
+            "layer_id": "layer-scarico-tapered-cromo",
+            "layer_src": "public/assets/scarico_tapered.png" 
+        },
+        {
+            "id": "scarico_corto_004",
+            "part_type": "scarico",
+            "nome": "Terminale Corto Nero Opaco",
+            "descrizione": "Design aggressivo, omologato Euro 5.",
+            "costo": 550.00,
+            "peso_variazione": -4.0,
+            "tema_compatibile": ["caferacer", "streetfighter"],
+            "url_acquisto": "https://simulato.it/scarico004",
+            "layer_id": "layer-scarico-corto-nero",
+            "layer_src": "public/assets/scarico_corto_nero.png"
+        }
+      
+    ]
+}
