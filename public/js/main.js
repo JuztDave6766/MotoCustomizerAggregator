@@ -6,9 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let selectedParts = {}; // Stato per tracciare le parti scelte dall'utente: {sella: 'id_parte_x', scarico: 'id_parte_y'}
     let baseMotoInfo = {}; // Dati della moto base selezionata (prezzo, peso)
 
-    // --- UTILITY: Caricamento Dati JSON (La funzione è la stessa, aggiungiamo il fetch) ---
+    // --- UTILITY: Caricamento Dati JSON ---
     async function fetchData(url) {
-        // ... (La funzione fetchData rimane invariata) ...
         try {
             const response = await fetch(url);
             if (!response.ok) {
@@ -21,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // --- Funzione che Popola i Modelli (AGGIORNATA per salvare baseMotoInfo) ---
+    // --- Funzione che Popola i Modelli ---
     function populateModels() {
         // ... (Logica per popolare i menu Modello/Marca) ...
         const brandSelect = document.getElementById('brand-select');
