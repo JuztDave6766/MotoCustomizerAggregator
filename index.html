@@ -92,6 +92,28 @@
         </details>
         <p class="small muted photo-note">In modalità foto cambiano i colori di serbatoio, codino, sella, cerchi, parafango e scarico. Forme delle parti, telaio, cupolino e livrea restano indicativi.</p>
       </section>
+
+      <section class="block collage-block" id="collage-block" hidden>
+        <h2><span class="num">5</span> Banco collage</h2>
+        <p class="small muted">Scegli una parte dal catalogo: la foto del negozio viene ritagliata e incollata sulla moto con nastro e annotazioni. Trascina i ritagli per spostarli.</p>
+        <label class="check-row">
+          <input type="checkbox" id="collage-show-lines" checked>
+          <span>Mostra le linee guida</span>
+        </label>
+        <div class="collage-selected" id="collage-selected" hidden>
+          <p class="small">Ritaglio selezionato: <b id="collage-selected-name">—</b></p>
+          <label class="calib-field">Dimensione <output id="clip-scale-val">× 1.00</output>
+            <input id="clip-scale" type="range" min="0.4" max="1.8" step="0.05" value="1">
+          </label>
+          <label class="calib-field">Rotazione <output id="clip-rot-val">0°</output>
+            <input id="clip-rot" type="range" min="-25" max="25" step="1" value="0">
+          </label>
+        </div>
+        <div class="collage-actions">
+          <button id="collage-reset" class="btn tiny" type="button">Ripristina ritagli</button>
+        </div>
+        <p class="small muted photo-note">Il collage è un moodboard, non una simulazione di montaggio: forme, proporzioni e compatibilità vanno verificate sul prodotto reale.</p>
+      </section>
     </aside>
 
     <!-- ============ ANTEPRIMA ============ -->
@@ -106,6 +128,7 @@
             <div class="view-toggle" id="view-toggle" role="group" aria-label="Tipo di anteprima">
               <button type="button" data-view="photo" id="view-photo" class="active">Foto</button>
               <button type="button" data-view="vector" id="view-vector">Vettoriale</button>
+              <button type="button" data-view="collage" id="view-collage">Collage</button>
             </div>
             <button id="btn-compare" class="btn tiny" type="button" title="Mostra la moto di serie">Originale</button>
             <div class="badge" id="stage-price">€ 4.290</div>
@@ -130,7 +153,7 @@
         <span>Totale stimato</span>
         <strong id="total">€ 7.990</strong>
       </div>
-      <p class="small muted">Prezzi dimostrativi. Apri i link per verificare prezzo, misure e compatibilità reali.</p>
+      <p class="small muted">Catalogo verificato sui negozi. Prezzi e disponibilità possono cambiare: aprili per controllare prima di acquistare.</p>
       <button id="btn-links" class="btn primary wide" type="button">Apri lista acquisti</button>
 
       <section class="block import">

@@ -424,6 +424,118 @@ const PARTS = {
   },
 };
 
+/* ------------------------------------------------------------
+   Catalogo reale (MVP Benelli Leoncino 250)
+
+   Solo prodotti verificati sui negozi: nome, prezzo, link e immagine.
+   Le categorie senza un aftermarket verificato restano "di serie".
+   Immagini e prezzi appartengono ai rispettivi negozi: l'app li mostra
+   come ritagli di catalogo e rimanda al negozio per l'acquisto.
+   ------------------------------------------------------------ */
+
+const CATALOG = {
+  leoncino: {
+    exhaust: [
+      {
+        id: 'real-msr-quadstreet',
+        name: 'MSR Quadstreet Two-Tone',
+        price: 333.84,
+        meta: 'Scarico completo omologato · Leoncino 250 2019–2022 · MSR',
+        url: 'https://www.msr-distributoreurope.net/scarico-completo-omologato-msr-moto-benelli-leoncino-250-2019-2020-2021-2022-quadstreet-two-tone-acciaio-inox-fine-serie',
+        site: 'MSR Distributore Europe',
+        image:
+          'https://www.msr-distributoreurope.net/image/cache/catalog/productimage/10-QUADSTREET-TWO-TONE-TERMINALE-NERO-INOX-OMOLOGATO-MSR-EXHAUST-MADE-IN-ITALY-PAVIA-AUSPUFF-ABE-ESCAPE-ECHAPPEMENT-ABE-APPROVED-500x500.jpg',
+      },
+    ],
+    windshield: [
+      {
+        id: 'real-puig-custom-ii',
+        name: 'Puig Custom II 0336H',
+        price: 96.99,
+        meta: 'Cupolino basso fumé · faro tondo · Puig',
+        url: 'https://www.motociclistaonline.it/parabrezza/60164-58350-puig-0336h-cupolino-custom-ii-moto-faro-tondo.html',
+        site: 'MotociclistaOnline.it',
+        image:
+          'https://www.motociclistaonline.it/101959-large_default/puig-0336h-cupolino-custom-ii-moto-faro-tondo.jpg',
+      },
+      {
+        id: 'real-puig-touring',
+        name: 'Puig Touring 0856W',
+        price: 128.99,
+        meta: 'Cupolino alto trasparente · 530–540 mm · Puig',
+        url: 'https://www.motociclistaonline.it/parabrezza/68864-puig-racing-0856w-cupolino-touring-trasparente-faro-tondo-530-540-mm-vari-modelli.html',
+        site: 'MotociclistaOnline.it',
+        image:
+          'https://www.motociclistaonline.it/143113-large_default/puig-racing-0856w-cupolino-touring-trasparente-faro-tondo-530-540-mm-vari-modelli.jpg',
+      },
+      {
+        id: 'real-barracuda-bl5300',
+        name: 'Barracuda Aerosport BL5300',
+        price: 149.9,
+        meta: 'Cupolino classic · Leoncino 250/500 · Barracuda',
+        url: 'https://www.motociclistaonline.it/leoncino-800-trail-22-/39374-barracuda-bl5300-a-parabrezza-aerosport-classic-benelli-leoncino-250-500.html',
+        site: 'MotociclistaOnline.it',
+        image:
+          'https://www.motociclistaonline.it/41469-large_default/barracuda-bl5300-a-parabrezza-aerosport-classic-benelli-leoncino-250-500.jpg',
+      },
+    ],
+    fender: [
+      {
+        id: 'real-motorx-rear',
+        name: 'Parafango posteriore Motor-X',
+        price: 131.99,
+        meta: 'Parafango posteriore · Leoncino 250 · Motor-X',
+        url: 'https://www.motor-x.it/p/parafango-posteriore-benelli-leoncino-250',
+        site: 'Motor-X',
+        image:
+          'https://www.motor-x.it/thumbs/1200x630x1x1/images/33/4ea473132353c883caa3ab7f713a122b.webp',
+      },
+      {
+        id: 'real-zaddox-extension',
+        name: 'Estensione parafango Zaddox',
+        price: 41.99,
+        meta: 'Estensione anteriore/posteriore · Leoncino 250/500 · Motea',
+        url: 'https://www.motea.com/it/estensione-parafango-compatibile-con-benelli-leoncino-250-500-trail-parafanghi-anteriore-posteriore-zaddox-ke27-a311892-0',
+        site: 'Motea',
+        image:
+          'https://www.motea.com/media/catalog/product/cache/f9369e8515a17e31934ddf7fd386d7d2/z/a/zaddox_zubehor_a329355-01.jpg',
+      },
+      {
+        id: 'real-barracuda-bl5104',
+        name: 'Portatarga Barracuda BL5104-SN',
+        price: 64.9,
+        meta: 'Portatarga side naked · Leoncino 250/500 · Barracuda',
+        url: 'https://www.motociclistaonline.it/leoncino-250-19-/39359-barracuda-bl5104-sn-sostegno-della-targa-benelli-leoncino-250-500.html',
+        site: 'MotociclistaOnline.it',
+        image:
+          'https://www.motociclistaonline.it/41131-large_default/barracuda-bl5104-sn-sostegno-della-targa-benelli-leoncino-250-500.jpg',
+      },
+    ],
+    mirrors: [
+      {
+        id: 'real-barracuda-skin-x',
+        name: 'Barracuda Skin-X Bar End',
+        price: 169,
+        meta: 'Coppia specchi bar-end · attacco universale 22 mm · Barracuda',
+        url: 'https://www.motociclistaonline.it/specchietti/39045-barracuda-n2000-sxb-coppia-specchietti-skin-x-bar-end-b-lux.html',
+        site: 'MotociclistaOnline.it',
+        image:
+          'https://www.motociclistaonline.it/123149-large_default/barracuda-n2000-sxb-coppia-specchietti-skin-x-bar-end-b-lux.jpg',
+      },
+      {
+        id: 'real-barracuda-skin-r',
+        name: 'Barracuda Skin-R Bar End',
+        price: 149,
+        meta: 'Coppia specchi bar-end · attacco universale 22 mm · Barracuda',
+        url: 'https://www.motociclistaonline.it/specchietti/39058-barracuda-n2000-srb-coppia-specchietti-skin-r-bar-end-b-lux.html',
+        site: 'MotociclistaOnline.it',
+        image:
+          'https://www.motociclistaonline.it/40009-large_default/barracuda-n2000-srb-coppia-specchietti-skin-r-bar-end-b-lux.jpg',
+      },
+    ],
+  },
+};
+
 const STOCK = {
   exhaust: 'stock',
   seat: 'stock',
@@ -445,6 +557,32 @@ const DEFAULT_TINT = {
 };
 
 /* ------------------------------------------------------------
+   Collage: ancore sulla foto e posizioni iniziali dei ritagli
+   Coordinate delle ancore nello spazio della foto (705 × 600).
+   Le posizioni dei ritagli sono percentuali dell'area foto.
+   ------------------------------------------------------------ */
+
+const COLLAGE_ANCHORS = {
+  exhaust: [300, 382],
+  seat: [236, 268],
+  wheels: [141, 424],
+  fender: [585, 330],
+  mirrors: [446, 128],
+  windshield: [585, 190],
+  decal: [365, 258],
+};
+
+const COLLAGE_DEFAULT = {
+  exhaust: { x: 12, y: 78, scale: 1, rot: -4 },
+  seat: { x: 62, y: 80, scale: 1, rot: 3 },
+  wheels: { x: 87, y: 48, scale: 1, rot: 4 },
+  fender: { x: 87, y: 78, scale: 1, rot: -2 },
+  mirrors: { x: 12, y: 18, scale: 1, rot: 2 },
+  windshield: { x: 37, y: 18, scale: 1, rot: -3 },
+  decal: { x: 62, y: 18, scale: 1, rot: 2 },
+};
+
+/* ------------------------------------------------------------
    Stato
    ------------------------------------------------------------ */
 
@@ -457,6 +595,9 @@ function blankState(model = 'leoncino') {
     custom: [],
     compare: false,
     photo: Boolean(PHOTO[model]),
+    collage: false,
+    collageLines: true,
+    clips: {},
     photoSrc: '',
     calib: {},
     showMasks: false,
@@ -464,6 +605,7 @@ function blankState(model = 'leoncino') {
 }
 
 let st = blankState();
+let selectedClip = null;
 
 function loadState() {
   try {
@@ -484,6 +626,33 @@ function loadState() {
           .filter((p) => p && typeof p.id === 'string' && typeof p.name === 'string')
           .slice(0, 100)
       : [];
+
+    // Scarta parti non più esistenti (cataloghi cambiati, stato vecchio).
+    for (const cat of Object.keys(STOCK)) {
+      const id = chosen[cat];
+      if (id === STOCK[cat]) continue;
+      const imported = custom.some((p) => p.cat === cat && p.id === id);
+      const known = modelParts(model, cat).some((p) => p.id === id);
+      if (!imported && !known) chosen[cat] = STOCK[cat];
+    }
+
+    const clips = {};
+    if (data.clips && typeof data.clips === 'object') {
+      for (const cat of Object.keys(COLLAGE_DEFAULT)) {
+        const saved = data.clips[cat];
+        if (!saved || typeof saved !== 'object') continue;
+        const item = { ...COLLAGE_DEFAULT[cat] };
+        for (const key of ['x', 'y', 'scale', 'rot']) {
+          if (Number.isFinite(Number(saved[key]))) item[key] = Number(saved[key]);
+        }
+        item.x = clamp(item.x, 4, 96);
+        item.y = clamp(item.y, 4, 96);
+        item.scale = clamp(item.scale, 0.4, 1.8);
+        item.rot = clamp(item.rot, -25, 25);
+        clips[cat] = item;
+      }
+    }
+
     const calib = {};
     if (data.calib && typeof data.calib === 'object') {
       for (const key of Object.keys(PHOTO[model] ? PHOTO[model].zones : {})) {
@@ -507,7 +676,10 @@ function loadState() {
       chosen,
       custom,
       compare: false,
-      photo: Boolean(PHOTO[model]) && data.photo !== false,
+      photo: Boolean(PHOTO[model]) && data.photo !== false && data.collage !== true,
+      collage: Boolean(PHOTO[model]) && data.collage === true,
+      collageLines: data.collageLines !== false,
+      clips,
       photoSrc,
       calib,
       showMasks: false,
@@ -527,14 +699,36 @@ function persist() {
 }
 
 /* ------------------------------------------------------------
-   Ricerca parti
+   Ricerca parti (catalogo reale + fallback dimostrativi)
    ------------------------------------------------------------ */
+
+function realParts(model, cat) {
+  const group = CATALOG[model];
+  const items = group && group[cat];
+  return Array.isArray(items) ? items : [];
+}
+
+/**
+ * Parti disponibili per un modello.
+ * Se esiste un catalogo reale per il modello, le categorie non coperte
+ * mostrano solo la parte di serie: niente prodotti inventati.
+ */
+function modelParts(model, cat) {
+  const generic = PARTS[cat] ? PARTS[cat].items : [];
+  const stockId = STOCK[cat];
+  const stock = generic.filter((p) => p.id === stockId);
+  if (CATALOG[model]) return [...stock, ...realParts(model, cat)];
+  return generic;
+}
+
+function partsFor(cat) {
+  return modelParts(st.model, cat);
+}
 
 function findPart(cat, id) {
   const local = st.custom.find((p) => p.id === id && p.cat === cat);
   if (local) return local;
-  const group = PARTS[cat];
-  return group ? group.items.find((p) => p.id === id) || null : null;
+  return partsFor(cat).find((p) => p.id === id) || null;
 }
 
 function selectedId(cat) {
@@ -1109,15 +1303,200 @@ function photoMarkup() {
 }
 
 /* ------------------------------------------------------------
+   Collage: ritagli di catalogo sul render della moto
+   ------------------------------------------------------------ */
+
+function collageAvailable() {
+  return Boolean(PHOTO[st.model]);
+}
+
+function clipPos(cat) {
+  const base = COLLAGE_DEFAULT[cat] || { x: 50, y: 50, scale: 1, rot: 0 };
+  const saved = st.clips && st.clips[cat];
+  return saved ? { ...base, ...saved } : { ...base };
+}
+
+function clipPart(cat) {
+  const part = findPart(cat, st.chosen[cat]);
+  if (!part) return null;
+  if (part.id === STOCK[cat]) return null;
+  if (!part.image && !part.url) return null;
+  return part;
+}
+
+function collageClips() {
+  if (st.compare) return [];
+  return CATEGORIES.map((cat) => {
+    const part = clipPart(cat.key);
+    return part ? { cat: cat.key, label: cat.label, part, pos: clipPos(cat.key) } : null;
+  }).filter(Boolean);
+}
+
+function imageProxy(url) {
+  return '/api/image?url=' + encodeURIComponent(url);
+}
+
+function collageLinesMarkup() {
+  if (!st.collageLines) return '';
+  return collageClips()
+    .map(({ cat, pos }) => {
+      const anchor = COLLAGE_ANCHORS[cat] || [352, 300];
+      const sx = (pos.x / 100) * 705;
+      const sy = (pos.y / 100) * 600;
+      const [ax, ay] = anchor;
+      return `
+        <line x1="${sx.toFixed(1)}" y1="${sy.toFixed(1)}" x2="${ax}" y2="${ay}"
+          stroke="rgba(38,34,28,.6)" stroke-width="1.7" stroke-dasharray="6 4" stroke-linecap="round"/>
+        <circle cx="${ax}" cy="${ay}" r="3.4" fill="#26221c" opacity=".75"/>
+        <circle cx="${ax}" cy="${ay}" r="7" fill="none" stroke="#26221c" stroke-width="1" opacity=".3"/>`;
+    })
+    .join('');
+}
+
+function collageClipMarkup({ cat, label, part, pos }) {
+  const price = part.price ? euro(part.price) : 'prezzo da verificare';
+  const image = part.image
+    ? `<img src="${esc(imageProxy(part.image))}" alt="" draggable="false" loading="lazy"
+         onerror="this.style.display='none';this.parentNode.classList.add('noimg')">`
+    : '';
+  return `
+    <figure class="clip" data-cat="${cat}" tabindex="0"
+      style="left:${pos.x}%;top:${pos.y}%;--clip-rot:${pos.rot}deg;--clip-scale:${pos.scale}">
+      <div class="clip-paper">
+        <span class="clip-tape" aria-hidden="true"></span>
+        <div class="clip-visual">
+          ${image}
+          <span class="clip-fallback">${esc(part.name)}</span>
+        </div>
+        <figcaption>
+          <span class="clip-cat">${esc(label)}</span>
+          <span class="clip-name">${esc(part.name)}</span>
+          <span class="clip-price">${esc(price)}</span>
+        </figcaption>
+      </div>
+      <div class="clip-tools" role="toolbar" aria-label="Regola ${esc(label)}">
+        <button type="button" data-clip-act="scale-down" title="Rimpicciolisci" aria-label="Rimpicciolisci">−</button>
+        <button type="button" data-clip-act="scale-up" title="Ingrandisci" aria-label="Ingrandisci">+</button>
+        <button type="button" data-clip-act="rot-left" title="Ruota a sinistra" aria-label="Ruota a sinistra">⟲</button>
+        <button type="button" data-clip-act="rot-right" title="Ruota a destra" aria-label="Ruota a destra">⟳</button>
+        <button type="button" data-clip-act="reset" title="Ripristina ritaglio" aria-label="Ripristina ritaglio">↺</button>
+      </div>
+    </figure>`;
+}
+
+function collageMarkup() {
+  const src = photoSrc();
+  const clips = collageClips();
+  const clipHtml = clips.map(collageClipMarkup).join('');
+  const empty = clips.length
+    ? ''
+    : `<p class="collage-empty">Seleziona scarico, cupolino, parafango o specchietti: il ritaglio del negozio compare qui.</p>`;
+
+  return `
+  <div class="collage">
+    <figure class="collage-board">
+      <div class="collage-inner" id="collage-inner">
+        <img class="collage-base" src="${esc(src)}" alt="${esc(MODELS[st.model].name)}" draggable="false">
+        <svg class="collage-lines" id="collage-lines" viewBox="0 0 705 600" preserveAspectRatio="none" aria-hidden="true">
+          ${collageLinesMarkup()}
+        </svg>
+        <div class="collage-clips" id="collage-clips">${clipHtml}</div>
+        ${empty}
+        <span class="collage-pin pin-a" aria-hidden="true"></span>
+        <span class="collage-pin pin-b" aria-hidden="true"></span>
+      </div>
+      <figcaption class="collage-board-caption">
+        <b>Leoncino 250</b>
+        <span>moodboard · ${clips.length} ${clips.length === 1 ? 'ritaglio' : 'ritagli'} · trascina e regola</span>
+      </figcaption>
+    </figure>
+  </div>`;
+}
+
+function updateCollageLines() {
+  const svg = $('#collage-lines');
+  if (!svg) return;
+  svg.innerHTML = collageLinesMarkup();
+}
+
+function applyClipTransform(cat) {
+  const el = document.querySelector(`.clip[data-cat="${cat}"]`);
+  if (!el) return;
+  const pos = clipPos(cat);
+  el.style.left = pos.x + '%';
+  el.style.top = pos.y + '%';
+  el.style.setProperty('--clip-rot', pos.rot + 'deg');
+  el.style.setProperty('--clip-scale', pos.scale);
+  updateCollageLines();
+}
+
+function selectClip(cat) {
+  selectedClip = cat && clipPart(cat) ? cat : null;
+  $$('.clip', $('#bike')).forEach((el) => {
+    el.classList.toggle('selected', el.dataset.cat === selectedClip);
+  });
+  syncClipControls();
+}
+
+function syncClipControls() {
+  const box = $('#collage-selected');
+  if (!box) return;
+  const part = selectedClip ? clipPart(selectedClip) : null;
+  if (!part) {
+    box.hidden = true;
+    return;
+  }
+  const pos = clipPos(selectedClip);
+  box.hidden = false;
+  const name = $('#collage-selected-name');
+  if (name) name.textContent = part.name;
+  const scale = $('#clip-scale');
+  if (scale) scale.value = String(pos.scale);
+  const rot = $('#clip-rot');
+  if (rot) rot.value = String(pos.rot);
+  const scaleVal = $('#clip-scale-val');
+  if (scaleVal) scaleVal.textContent = '× ' + pos.scale.toFixed(2);
+  const rotVal = $('#clip-rot-val');
+  if (rotVal) rotVal.textContent = pos.rot.toFixed(0) + '°';
+}
+
+function setClipPos(cat, patch, save) {
+  const pos = { ...clipPos(cat), ...patch };
+  pos.x = clamp(pos.x, 4, 96);
+  pos.y = clamp(pos.y, 4, 96);
+  pos.scale = clamp(pos.scale, 0.4, 1.8);
+  pos.rot = clamp(pos.rot, -25, 25);
+  st.clips[cat] = pos;
+  applyClipTransform(cat);
+  if (save) persist();
+}
+
+function resetCollage() {
+  st.clips = {};
+  renderBike();
+  persist();
+  toast('Ritagli riportati alla posizione iniziale');
+}
+
+/* ------------------------------------------------------------
    Rendering UI
    ------------------------------------------------------------ */
 
 function renderBike() {
   const box = $('#bike');
   if (!box) return;
+  const collage = Boolean(st.collage && hasPhoto());
   const photo = Boolean(st.photo && hasPhoto());
-  box.classList.toggle('photo', photo);
-  box.innerHTML = photo ? photoMarkup() : bikeMarkup();
+  box.classList.toggle('photo', photo && !collage);
+  box.classList.toggle('collage', collage);
+  box.innerHTML = collage ? collageMarkup() : photo ? photoMarkup() : bikeMarkup();
+  if (!collage) selectedClip = null;
+  else if (selectedClip && clipPart(selectedClip)) {
+    $$('.clip', box).forEach((el) => el.classList.toggle('selected', el.dataset.cat === selectedClip));
+  } else {
+    selectedClip = null;
+  }
+  syncClipControls();
 }
 
 function refreshColors() {
@@ -1160,7 +1539,9 @@ function renderParts() {
 
   box.innerHTML = CATEGORIES.map((cat) => {
     const custom = st.custom.filter((p) => p.cat === cat.key);
-    const items = [...PARTS[cat.key].items, ...custom];
+    const items = [...partsFor(cat.key), ...custom];
+    const hasReal = realParts(st.model, cat.key).length > 0;
+    const catalogModel = Boolean(CATALOG[st.model]);
 
     const chips = items
       .map((p) => {
@@ -1175,6 +1556,12 @@ function renderParts() {
       .join('');
 
     const selected = findPart(cat.key, st.chosen[cat.key]);
+    const missing = catalogModel && !hasReal && !custom.length;
+    const note = missing
+      ? 'Nessun aftermarket verificato per la Leoncino 250: resta la parte di serie.'
+      : selected && selected.meta
+        ? selected.meta
+        : '';
 
     return `
       <div class="part-group">
@@ -1183,7 +1570,7 @@ function renderParts() {
           <span class="pg-now">${esc(selected ? selected.name : 'Di serie')}</span>
         </div>
         <div class="chips">${chips}</div>
-        ${selected && selected.meta ? `<p class="part-note">${esc(selected.meta)}</p>` : ''}
+        ${note ? `<p class="part-note ${missing ? 'muted' : ''}">${esc(note)}</p>` : ''}
       </div>`;
   }).join('');
 }
@@ -1216,10 +1603,12 @@ function renderColors() {
 
 function renderStage() {
   const model = MODELS[st.model];
-  const photoOn = Boolean(st.photo && hasPhoto());
+  const collageOn = Boolean(st.collage && hasPhoto());
+  const photoOn = Boolean(st.photo && hasPhoto()) && !collageOn;
   $('#stage-title').textContent = model.name;
   const bits = [model.spec];
-  if (photoOn) bits.push('modalità foto');
+  if (collageOn) bits.push('banco collage');
+  else if (photoOn) bits.push('modalità foto');
   if (st.compare) bits.push('anteprima originale');
   $('#stage-sub').textContent = bits.join(' · ');
   $('#stage-price').textContent = euro(totalPrice());
@@ -1227,9 +1616,11 @@ function renderStage() {
   $('#btn-compare').setAttribute('aria-pressed', String(st.compare));
   const hint = $('#stage-hint');
   if (hint) {
-    hint.textContent = photoOn
-      ? 'Foto ufficiale del modello: i colori cambiano in tempo reale. Le forme delle parti restano quelle della foto.'
-      : "Seleziona le parti a sinistra: l'anteprima si aggiorna in tempo reale.";
+    hint.textContent = collageOn
+      ? 'Trascina i ritagli per spostarli, usa i pulsanti per ruotarli e scalarli. Le linee li collegano al punto giusto sulla moto.'
+      : photoOn
+        ? 'Foto ufficiale del modello: i colori cambiano in tempo reale. Le forme delle parti restano quelle della foto.'
+        : "Seleziona le parti a sinistra: l'anteprima si aggiorna in tempo reale.";
   }
 }
 
@@ -1262,9 +1653,11 @@ function syncCalibControls() {
 
 function renderPhotoUI() {
   const available = hasPhoto();
-  const on = Boolean(st.photo && available);
+  const collageOn = Boolean(st.collage && available);
+  const on = Boolean(st.photo && available) && !collageOn;
   const photoBtn = $('#view-photo');
   const vectorBtn = $('#view-vector');
+  const collageBtn = $('#view-collage');
   if (photoBtn) {
     photoBtn.disabled = !available;
     photoBtn.classList.toggle('active', on);
@@ -1272,11 +1665,23 @@ function renderPhotoUI() {
     photoBtn.title = available ? 'Anteprima fotografica' : 'Disponibile con Benelli Leoncino 250';
   }
   if (vectorBtn) {
-    vectorBtn.classList.toggle('active', !on);
-    vectorBtn.setAttribute('aria-pressed', String(!on));
+    vectorBtn.classList.toggle('active', !on && !collageOn);
+    vectorBtn.setAttribute('aria-pressed', String(!on && !collageOn));
+  }
+  if (collageBtn) {
+    collageBtn.disabled = !available;
+    collageBtn.classList.toggle('active', collageOn);
+    collageBtn.setAttribute('aria-pressed', String(collageOn));
+    collageBtn.title = available
+      ? 'Ritaglia i prodotti dal negozio e incollali sulla moto'
+      : 'Disponibile con Benelli Leoncino 250';
   }
   const block = $('#photo-block');
   if (block) block.hidden = !on;
+  const collageBlock = $('#collage-block');
+  if (collageBlock) collageBlock.hidden = !collageOn;
+  const lines = $('#collage-show-lines');
+  if (lines) lines.checked = st.collageLines !== false;
   if (!on) return;
 
   const select = $('#calib-zone');
@@ -1391,17 +1796,19 @@ function setModel(key) {
   st.model = key;
   st.colors = {};
   st.photo = Boolean(PHOTO[key]);
+  st.collage = false;
   st.showMasks = false;
   renderAll();
   persist();
 }
 
 function setPhotoMode(mode) {
-  if (mode === 'photo' && !hasPhoto()) {
-    toast('La modalità foto è disponibile con Benelli Leoncino 250', true);
+  if ((mode === 'photo' || mode === 'collage') && !hasPhoto()) {
+    toast('Questa modalità è disponibile con Benelli Leoncino 250', true);
     return;
   }
   st.photo = mode === 'photo';
+  st.collage = mode === 'collage';
   st.showMasks = false;
   renderAll();
   persist();
@@ -1505,7 +1912,8 @@ function setTheme(key) {
   if (!THEMES[key]) return;
   st.theme = key;
   st.colors = {};
-  if (THEMES[key].decal) st.chosen.decal = THEMES[key].decal;
+  const decal = THEMES[key].decal;
+  if (decal && partsFor('decal').some((p) => p.id === decal)) st.chosen.decal = decal;
   renderAll();
   persist();
 }
@@ -1687,7 +2095,248 @@ async function exportPhotoPNG() {
   toast('Anteprima fotografica esportata in PNG');
 }
 
+function wrapCanvasText(ctx, text, maxWidth, maxLines) {
+  const words = String(text || '').split(/\s+/).filter(Boolean);
+  const lines = [];
+  let line = '';
+  for (const word of words) {
+    const test = line ? line + ' ' + word : word;
+    if (ctx.measureText(test).width > maxWidth && line) {
+      lines.push(line);
+      line = word;
+      if (lines.length === maxLines - 1) break;
+    } else {
+      line = test;
+    }
+  }
+  if (line && lines.length < maxLines) lines.push(line);
+  if (!lines.length) return [''];
+  if (lines.join(' ').length < String(text).length) {
+    const last = lines[lines.length - 1];
+    if (!last.endsWith('…')) lines[lines.length - 1] = last.replace(/[ ,.;:]+$/, '') + '…';
+  }
+  return lines;
+}
+
+function loadClipImage(part) {
+  if (!part || !part.image) return Promise.resolve(null);
+  return loadImage(imageProxy(part.image)).catch(() => null);
+}
+
+async function exportCollagePNG() {
+  const src = photoSrc();
+  if (!src) throw new Error('foto base non disponibile');
+
+  const base = await loadImage(src);
+  const clips = collageClips();
+  const W = 1600;
+  const pad = 52;
+  const innerW = W - pad * 2;
+  const innerH = Math.round((innerW * 600) / 705);
+  const H = pad + innerH + 104;
+  const k = innerW / 705;
+
+  const canvas = document.createElement('canvas');
+  canvas.width = W;
+  canvas.height = H;
+  const ctx = canvas.getContext('2d');
+
+  // Foglio di carta
+  const paper = ctx.createLinearGradient(0, 0, W, H);
+  paper.addColorStop(0, '#f5efe1');
+  paper.addColorStop(0.55, '#ece3cf');
+  paper.addColorStop(1, '#ddd1b7');
+  ctx.fillStyle = paper;
+  ctx.fillRect(0, 0, W, H);
+  ctx.strokeStyle = 'rgba(90,72,42,.06)';
+  ctx.lineWidth = 1;
+  for (let y = 3; y < H; y += 4) {
+    ctx.beginPath();
+    ctx.moveTo(0, y);
+    ctx.lineTo(W, y);
+    ctx.stroke();
+  }
+
+  // Cornice bianca della stampa
+  ctx.save();
+  ctx.shadowColor = 'rgba(0,0,0,.3)';
+  ctx.shadowBlur = 26;
+  ctx.shadowOffsetY = 10;
+  ctx.fillStyle = '#fdfaf0';
+  ctx.fillRect(pad - 14, pad - 14, innerW + 28, innerH + 28);
+  ctx.restore();
+
+  ctx.drawImage(base, pad, pad, innerW, innerH);
+
+  // Nastro ai due angoli alti
+  const tape = (cx, rot) => {
+    ctx.save();
+    ctx.translate(cx, pad - 8);
+    ctx.rotate((rot * Math.PI) / 180);
+    ctx.fillStyle = 'rgba(235,221,177,.78)';
+    ctx.fillRect(-76, -16, 152, 32);
+    ctx.restore();
+  };
+  tape(pad + 120, -5);
+  tape(pad + innerW - 120, 5);
+
+  // Linee guida verso le ancore
+  if (st.collageLines) {
+    ctx.save();
+    ctx.strokeStyle = 'rgba(38,34,28,.58)';
+    ctx.lineWidth = 3;
+    ctx.setLineDash([12, 9]);
+    ctx.lineCap = 'round';
+    for (const { cat, pos } of clips) {
+      const anchor = COLLAGE_ANCHORS[cat] || [352, 300];
+      const sx = pad + (pos.x / 100) * innerW;
+      const sy = pad + (pos.y / 100) * innerH;
+      const ax = pad + (anchor[0] / 705) * innerW;
+      const ay = pad + (anchor[1] / 600) * innerH;
+      ctx.beginPath();
+      ctx.moveTo(sx, sy);
+      ctx.lineTo(ax, ay);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.beginPath();
+      ctx.arc(ax, ay, 8, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(38,34,28,.75)';
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(ax, ay, 16, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(38,34,28,.3)';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      ctx.setLineDash([12, 9]);
+      ctx.strokeStyle = 'rgba(38,34,28,.58)';
+      ctx.lineWidth = 3;
+    }
+    ctx.restore();
+  }
+
+  // Ritagli
+  const clipW = 0.24 * 705 * k;
+  const paperPad = 7 * k;
+  const captionH = 50 * k;
+  const cardH = paperPad * 2 + (clipW - paperPad * 2) + captionH;
+
+  for (const { cat, label, part, pos } of clips) {
+    const img = await loadClipImage(part);
+    const cx = pad + (pos.x / 100) * innerW;
+    const cy = pad + (pos.y / 100) * innerH;
+    const rot = (pos.rot * Math.PI) / 180;
+
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(rot);
+    ctx.scale(pos.scale, pos.scale);
+
+    // Carta del ritaglio
+    ctx.save();
+    ctx.shadowColor = 'rgba(0,0,0,.42)';
+    ctx.shadowBlur = 22 * k;
+    ctx.shadowOffsetY = 9 * k;
+    ctx.fillStyle = '#fdfaf0';
+    ctx.fillRect(-clipW / 2, -cardH / 2, clipW, cardH);
+    ctx.restore();
+
+    const vx = -clipW / 2 + paperPad;
+    const vy = -cardH / 2 + paperPad;
+    const vw = clipW - paperPad * 2;
+    const vh = vw;
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(vx, vy, vw, vh);
+
+    if (img) {
+      const r = Math.min(vw / img.width, vh / img.height);
+      const dw = img.width * r;
+      const dh = img.height * r;
+      ctx.drawImage(img, vx + (vw - dw) / 2, vy + (vh - dh) / 2, dw, dh);
+      ctx.strokeStyle = 'rgba(0,0,0,.08)';
+      ctx.lineWidth = 1;
+      ctx.strokeRect(vx, vy, vw, vh);
+    } else {
+      ctx.fillStyle = '#f7f2e4';
+      ctx.fillRect(vx, vy, vw, vh);
+      ctx.fillStyle = '#6d6250';
+      ctx.font = `700 ${Math.round(17 * k)}px Arial, Helvetica, sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      const lines = wrapCanvasText(ctx, part.name, vw - 24 * k, 3);
+      lines.forEach((line, i) => {
+        ctx.fillText(line, vx + vw / 2, vy + vh / 2 + (i - (lines.length - 1) / 2) * 22 * k);
+      });
+    }
+
+    // Nastro adesivo sul ritaglio
+    ctx.save();
+    ctx.translate(0, -cardH / 2 + 2);
+    ctx.rotate((-1.5 * Math.PI) / 180);
+    ctx.fillStyle = 'rgba(232,218,174,.62)';
+    ctx.fillRect(-clipW * 0.24, -9 * k, clipW * 0.48, 18 * k);
+    ctx.restore();
+
+    // Didascalia
+    const left = -clipW / 2 + paperPad + 3 * k;
+    const top = vy + vh + 17 * k;
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'alphabetic';
+    ctx.fillStyle = '#8a7c62';
+    ctx.font = `700 ${Math.round(8 * k)}px "Courier New", monospace`;
+    ctx.fillText(String(label).toUpperCase(), left, top);
+
+    ctx.fillStyle = '#26221b';
+    ctx.font = `800 ${Math.round(10.5 * k)}px Arial, Helvetica, sans-serif`;
+    const nameLines = wrapCanvasText(ctx, part.name, clipW - paperPad * 2 - 4 * k, 2);
+    nameLines.forEach((line, i) => {
+      ctx.fillText(line, left, top + (15 + i * 13) * k);
+    });
+
+    ctx.fillStyle = '#a6431f';
+    ctx.font = `700 ${Math.round(10.5 * k)}px "Courier New", monospace`;
+    const price = part.price ? euro(part.price) : 'prezzo da verificare';
+    ctx.fillText(price, left, top + (15 + nameLines.length * 13 + 4) * k);
+
+    ctx.restore();
+  }
+
+  // Firma del moodboard
+  ctx.fillStyle = '#40382a';
+  ctx.font = '700 22px "Courier New", monospace';
+  ctx.textAlign = 'left';
+  ctx.textBaseline = 'alphabetic';
+  ctx.fillText('MOTOLAB · MOODBOARD', pad, H - 38);
+  ctx.fillStyle = 'rgba(64,56,42,.7)';
+  ctx.font = '16px "Courier New", monospace';
+  ctx.textAlign = 'right';
+  ctx.fillText(
+    MODELS[st.model].name + ' · ' + clips.length + (clips.length === 1 ? ' ritaglio' : ' ritagli'),
+    W - pad,
+    H - 38
+  );
+
+  const png = await new Promise((resolve) => canvas.toBlob(resolve, 'image/png'));
+  if (!png) throw new Error('conversione fallita');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(png);
+  a.download = 'motolab-' + st.model + '-collage.png';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 3000);
+  toast('Moodboard collage esportato in PNG');
+}
+
 async function exportPNG() {
+  if (st.collage && hasPhoto()) {
+    try {
+      await exportCollagePNG();
+    } catch (err) {
+      toast('Export non riuscito: ' + err.message, true);
+    }
+    return;
+  }
+
   if (st.photo && hasPhoto()) {
     try {
       await exportPhotoPNG();
@@ -1882,6 +2531,125 @@ function wireEvents() {
     viewToggle.addEventListener('click', (e) => {
       const btn = e.target.closest('[data-view]');
       if (btn) setPhotoMode(btn.dataset.view);
+    });
+  }
+
+  /* --- Collage: trascina, scala, ruota --- */
+  const bike = $('#bike');
+  let clipDrag = null;
+
+  if (bike) {
+    bike.addEventListener('pointerdown', (e) => {
+      const clip = e.target.closest('.clip');
+      if (!clip) {
+        selectClip(null);
+        return;
+      }
+      if (e.target.closest('[data-clip-act]')) return;
+      const inner = $('#collage-inner');
+      if (!inner) return;
+      const rect = inner.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      const cat = clip.dataset.cat;
+      const pos = clipPos(cat);
+      clipDrag = {
+        cat,
+        id: e.pointerId,
+        sx: e.clientX,
+        sy: e.clientY,
+        x: pos.x,
+        y: pos.y,
+        w: rect.width,
+        h: rect.height,
+      };
+      clip.classList.add('dragging');
+      selectClip(cat);
+      try {
+        clip.setPointerCapture(e.pointerId);
+      } catch (err) {
+        /* pointer capture non disponibile */
+      }
+      e.preventDefault();
+    });
+
+    bike.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-clip-act]');
+      const clip = e.target.closest('.clip');
+      if (!clip) return;
+      const cat = clip.dataset.cat;
+      selectClip(cat);
+      if (!btn) return;
+      const pos = clipPos(cat);
+      const act = btn.dataset.clipAct;
+      if (act === 'scale-up') setClipPos(cat, { scale: pos.scale + 0.1 }, true);
+      else if (act === 'scale-down') setClipPos(cat, { scale: pos.scale - 0.1 }, true);
+      else if (act === 'rot-left') setClipPos(cat, { rot: pos.rot - 5 }, true);
+      else if (act === 'rot-right') setClipPos(cat, { rot: pos.rot + 5 }, true);
+      else if (act === 'reset') setClipPos(cat, COLLAGE_DEFAULT[cat] || {}, true);
+    });
+
+    bike.addEventListener('keydown', (e) => {
+      const clip = e.target.closest('.clip');
+      if (!clip) return;
+      const cat = clip.dataset.cat;
+      const pos = clipPos(cat);
+      const step = e.shiftKey ? 5 : 1;
+      let patch = null;
+      if (e.key === 'ArrowLeft') patch = { x: pos.x - step };
+      else if (e.key === 'ArrowRight') patch = { x: pos.x + step };
+      else if (e.key === 'ArrowUp') patch = { y: pos.y - step };
+      else if (e.key === 'ArrowDown') patch = { y: pos.y + step };
+      if (!patch) return;
+      e.preventDefault();
+      setClipPos(cat, patch, true);
+    });
+  }
+
+  window.addEventListener('pointermove', (e) => {
+    if (!clipDrag || e.pointerId !== clipDrag.id) return;
+    const dx = ((e.clientX - clipDrag.sx) / clipDrag.w) * 100;
+    const dy = ((e.clientY - clipDrag.sy) / clipDrag.h) * 100;
+    setClipPos(clipDrag.cat, { x: clipDrag.x + dx, y: clipDrag.y + dy }, false);
+  });
+
+  const endClipDrag = (e) => {
+    if (!clipDrag) return;
+    if (e && e.pointerId !== clipDrag.id) return;
+    const el = document.querySelector(`.clip[data-cat="${clipDrag.cat}"]`);
+    if (el) el.classList.remove('dragging');
+    clipDrag = null;
+    persist();
+  };
+  window.addEventListener('pointerup', endClipDrag);
+  window.addEventListener('pointercancel', endClipDrag);
+
+  const showCollageLines = $('#collage-show-lines');
+  if (showCollageLines) {
+    showCollageLines.addEventListener('change', () => {
+      st.collageLines = showCollageLines.checked;
+      updateCollageLines();
+      persist();
+    });
+  }
+
+  const resetClips = $('#collage-reset');
+  if (resetClips) resetClips.addEventListener('click', resetCollage);
+
+  const clipScale = $('#clip-scale');
+  if (clipScale) {
+    clipScale.addEventListener('input', () => {
+      if (!selectedClip) return;
+      setClipPos(selectedClip, { scale: Number(clipScale.value) }, true);
+      syncClipControls();
+    });
+  }
+
+  const clipRot = $('#clip-rot');
+  if (clipRot) {
+    clipRot.addEventListener('input', () => {
+      if (!selectedClip) return;
+      setClipPos(selectedClip, { rot: Number(clipRot.value) }, true);
+      syncClipControls();
     });
   }
 

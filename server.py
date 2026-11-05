@@ -25,6 +25,7 @@ import urllib.request
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 
 MAX_BYTES = 1_500_000
+MAX_IMAGE_BYTES = 8_000_000
 TIMEOUT = 8
 USER_AGENT = (
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
@@ -87,6 +88,39 @@ def fetch_html(url: str) -> str:
         raise ValueError("timeout del negozio") from exc
 
     return raw.decode(charset, errors="replace")
+
+
+def fetch_image(url: str) -> tuple[bytes, str]:
+    """Scarica un'immagine pubblica per il collage (proxy same-origin)."""
+    parsed = urllib.parse.urlparse(url)
+    if parsed.scheme not in ALLOWED_SCHEMES:
+        raise ValueError("protocollo non supportato")
+    if not parsed.hostname or not is_public_host(parsed.hostname):
+        raise ValueError("host non raggiungibile o non pubblico")
+
+    req = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": USER_AGENT,
+            "Accept": "image/avif,image/webp,image/png,image/jpeg,image/*;q=0.8",
+            "Referer": "%s://%s/" % (parsed.scheme, parsed.netloc),
+        },
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
+            ctype = resp.headers.get_content_type()
+            if not ctype.startswith("image/"):
+                raise ValueError("la risorsa non è un'immagine (%s)" % ctype)
+            raw = resp.read(MAX_IMAGE_BYTES + 1)
+            if len(raw) > MAX_IMAGE_BYTES:
+                raise ValueError("immagine troppo grande")
+            return raw, ctype
+    except urllib.error.HTTPError as exc:
+        raise ValueError("il negozio ha risposto %s" % exc.code) from exc
+    except urllib.error.URLError as exc:
+        raise ValueError("connessione fallita: %s" % exc.reason) from exc
+    except TimeoutError as exc:
+        raise ValueError("timeout del negozio") from exc
 
 
 def parse_meta(html: str) -> dict[str, str]:
@@ -196,10 +230,11 @@ class Handler(SimpleHTTPRequestHandler):
     server_version = "MotoLab/1.0"
 
     def end_headers(self) -> None:
-        self.send_header("Cache-Control", "no-store")
+        self.send_header("Cache-Control", getattr(self, "_cache_control", None) or "no-store")
         super().end_headers()
 
     def do_GET(self) -> None:  # noqa: N802
+        self._cache_control = None
         parsed = urllib.parse.urlparse(self.path)
 
         if parsed.path == "/api/preview":
@@ -214,6 +249,28 @@ class Handler(SimpleHTTPRequestHandler):
                 self._json({"error": str(exc)}, status=422)
             except Exception as exc:  # pragma: no cover - rete imprevedibile
                 self._json({"error": "lettura non riuscita: %s" % exc}, status=502)
+            return
+
+        if parsed.path == "/api/image":
+            params = urllib.parse.parse_qs(parsed.query)
+            target = (params.get("url") or [""])[0].strip()
+            if not target:
+                self.send_error(400, "parametro url mancante")
+                return
+            try:
+                body, ctype = fetch_image(target)
+            except ValueError as exc:
+                self.send_error(422, str(exc))
+                return
+            except Exception:  # pragma: no cover - rete imprevedibile
+                self.send_error(502, "lettura immagine non riuscita")
+                return
+            self._cache_control = "public, max-age=3600"
+            self.send_response(200)
+            self.send_header("Content-Type", ctype)
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
             return
 
         super().do_GET()

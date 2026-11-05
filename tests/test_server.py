@@ -1,6 +1,7 @@
 import unittest
+from unittest import mock
 
-from server import absolute_image, is_public_host, parse_meta, parse_price
+from server import absolute_image, fetch_image, is_public_host, parse_meta, parse_price
 
 
 class ParseMetaTest(unittest.TestCase):
@@ -81,6 +82,81 @@ class PublicHostTest(unittest.TestCase):
 
     def test_accepts_public_ip_literal(self):
         self.assertTrue(is_public_host("93.184.216.34"))
+
+
+class FetchImageTest(unittest.TestCase):
+    def test_rejects_non_http_schemes(self):
+        for url in (
+            "ftp://example.com/foto.jpg",
+            "file:///etc/passwd",
+            "data:image/png;base64,AAAA",
+        ):
+            with self.subTest(url=url):
+                with self.assertRaises(ValueError):
+                    fetch_image(url)
+
+    def test_rejects_missing_host(self):
+        with self.assertRaises(ValueError):
+            fetch_image("https:///foto.jpg")
+
+    def test_rejects_private_and_loopback_hosts(self):
+        for url in (
+            "http://127.0.0.1/foto.jpg",
+            "http://localhost/foto.jpg",
+            "http://192.168.1.10/foto.jpg",
+            "http://10.0.0.5/foto.jpg",
+        ):
+            with self.subTest(url=url):
+                with self.assertRaises(ValueError):
+                    fetch_image(url)
+
+    def test_rejects_non_image_content_type(self):
+        class FakeResponse:
+            headers = {}
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *args):
+                return False
+
+            def read(self, size):
+                return b"<html></html>"
+
+        class FakeHeaders:
+            @staticmethod
+            def get_content_type():
+                return "text/html"
+
+        FakeResponse.headers = FakeHeaders()
+
+        with mock.patch("server.urllib.request.urlopen", return_value=FakeResponse()):
+            with self.assertRaises(ValueError):
+                fetch_image("https://example.com/pagina.html")
+
+    def test_rejects_oversized_image(self):
+        class FakeResponse:
+            headers = {}
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *args):
+                return False
+
+            def read(self, size):
+                return b"x" * size
+
+        class FakeHeaders:
+            @staticmethod
+            def get_content_type():
+                return "image/jpeg"
+
+        FakeResponse.headers = FakeHeaders()
+
+        with mock.patch("server.urllib.request.urlopen", return_value=FakeResponse()):
+            with self.assertRaises(ValueError):
+                fetch_image("https://example.com/foto.jpg")
 
 
 if __name__ == "__main__":
