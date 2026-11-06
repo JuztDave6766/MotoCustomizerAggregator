@@ -263,8 +263,10 @@ const CATEGORIES = [
   { key: 'wheels', label: 'Cerchi', target: 'rim' },
   { key: 'fender', label: 'Parafango', target: 'fender' },
   { key: 'mirrors', label: 'Specchietti', target: 'mirror' },
+  { key: 'handlebar', label: 'Manubrio', target: 'handlebar' },
   { key: 'windshield', label: 'Cupolino', target: 'glass' },
   { key: 'decal', label: 'Livrea', target: 'accent' },
+  { key: 'bag', label: 'Borse', target: 'bag' },
 ];
 
 // Link dimostrativi: sostituiscili con deep link/affiliazione reali.
@@ -393,6 +395,11 @@ const PARTS = {
       },
     ],
   },
+  handlebar: {
+    items: [
+      { id: 'stock', name: 'Di serie', price: 0, meta: 'Manubrio originale' },
+    ],
+  },
   windshield: {
     items: [
       { id: 'none', name: 'Nessuno', price: 0, meta: 'Configurazione originale' },
@@ -422,6 +429,11 @@ const PARTS = {
       { id: 'camo', name: 'Camouflage', price: 159, meta: 'Kit adesivi completo', url: storeLink('adesivi camouflage moto') },
     ],
   },
+  bag: {
+    items: [
+      { id: 'none', name: 'Nessuna', price: 0, meta: 'Nessuna borsa montata' },
+    ],
+  },
 };
 
 /* ------------------------------------------------------------
@@ -445,6 +457,28 @@ const CATALOG = {
         site: 'MSR Distributore Europe',
         image:
           'https://www.msr-distributoreurope.net/image/cache/catalog/productimage/10-QUADSTREET-TWO-TONE-TERMINALE-NERO-INOX-OMOLOGATO-MSR-EXHAUST-MADE-IN-ITALY-PAVIA-AUSPUFF-ABE-ESCAPE-ECHAPPEMENT-ABE-APPROVED-500x500.jpg',
+      },
+      {
+        id: 'real-craftride-forte',
+        name: 'Craftride Forte cromo',
+        price: 71.99,
+        meta: 'Universale · 43 cm, Ø 8 cm · senza EG-BE/TÜV · verifica raccordo',
+        url: 'https://www.motea.com/it/craftride-scarico-compatibile-con-benelli-leoncino-250-silenziatore-forte-cromo-180339-0',
+        site: 'Motea',
+        image:
+          'https://www.motea.com/media/catalog/product/c/r/craftride_auspuffe_127224-02.jpg',
+      },
+    ],
+    seat: [
+      {
+        id: 'real-craftride-flat',
+        name: 'Craftride Flat café racer',
+        price: 67.99,
+        meta: 'Universale 53×25×8,5 cm · richiede adattamenti al telaio',
+        url: 'https://www.motea.com/it/modifica-sella-per-cafe-racer-o-scarmbler-craftride-flat-nero-997464-0',
+        site: 'Motea',
+        image:
+          'https://www.motea.com/media/catalog/product/cache/f9369e8515a17e31934ddf7fd386d7d2/c/r/craftride_seats_997464-02.jpg',
       },
     ],
     windshield: [
@@ -476,7 +510,7 @@ const CATALOG = {
         url: 'https://www.motociclistaonline.it/leoncino-800-trail-22-/39374-barracuda-bl5300-a-parabrezza-aerosport-classic-benelli-leoncino-250-500.html',
         site: 'MotociclistaOnline.it',
         image:
-          'https://www.motociclistaonline.it/41469-large_default/barracuda-bl5300-a-parabrezza-aerosport-classic-benelli-leoncino-250-500.jpg',
+          'https://www.motociclistaonline.it/40714-large_default/barracuda-bl5300-a-parabrezza-aerosport-classic-benelli-leoncino-250-500.jpg',
       },
     ],
     fender: [
@@ -532,6 +566,50 @@ const CATALOG = {
         image:
           'https://www.motociclistaonline.it/40009-large_default/barracuda-n2000-srb-coppia-specchietti-skin-r-bar-end-b-lux.jpg',
       },
+      {
+        id: 'real-zaddox-sp1',
+        name: 'Zaddox SP1 Bar End',
+        price: 91.99,
+        meta: 'Coppia bar-end ECE · manubri 22–25 mm · specchio Ø 10 cm',
+        url: 'https://www.motea.com/it/specchio-retrovisore-moto-con-ece-specchietti-bar-end-coppia-zaddox-sp1-a213603-0',
+        site: 'Motea',
+        image:
+          'https://www.motea.com/media/catalog/product/cache/f9369e8515a17e31934ddf7fd386d7d2/m/o/motea_spiegel_a213603-01.jpg',
+      },
+    ],
+    handlebar: [
+      {
+        id: 'real-zaddox-clipon',
+        name: 'Zaddox Clip-On 41 mm',
+        price: 55.99,
+        meta: 'Clip-on forcella 41 mm · barra 22 mm · +30 mm · verifica diametro forcella',
+        url: 'https://www.motea.com/it/semi-manubrio-22mm-clip-on-41mm-con-aumento-di-30mm-zaddox-alluminio-in-nero-dplb-a564569-0',
+        site: 'Motea',
+        image:
+          'https://www.motea.com/media/catalog/product/m/o/motea_lenker_127153-02.jpg',
+      },
+      {
+        id: 'real-barracuda-racing-22',
+        name: 'Barracuda Racing 22',
+        price: 54.9,
+        meta: 'Manubrio universale Ø 22 mm · ergal · verifica ingombri e cablaggi',
+        url: 'https://www.barracudamoto.com/it_it/handlebar-racing-22-n1016-r-conf.html',
+        site: 'Barracuda Moto',
+        image:
+          'https://www.barracudamoto.com/media/catalog/product/cache/24da98fc20d38cb8e04c253437a16598/_/m/_m_a_manracing-m2_1.jpg',
+      },
+    ],
+    bag: [
+      {
+        id: 'real-craftride-elgin',
+        name: 'Craftride Elgin 2,4 L',
+        price: 47.99,
+        meta: 'Borsa universale 25 cm × Ø 11 cm · cinghie incluse',
+        url: 'https://www.motea.com/it/moto-borsa-porta-attrezzi-craftride-elgin-2-4ltr-per-chopper-bobber-caferacer-e-scrambler-in-nero-138152-0',
+        site: 'Motea',
+        image:
+          'https://www.motea.com/media/catalog/product/c/r/craftride_saddlebags_138152-01.jpg',
+      },
     ],
   },
 };
@@ -542,8 +620,10 @@ const STOCK = {
   wheels: 'stock',
   fender: 'stock',
   mirrors: 'stock',
+  handlebar: 'stock',
   windshield: 'none',
   decal: 'none',
+  bag: 'none',
 };
 
 const DEFAULT_TINT = {
@@ -552,8 +632,10 @@ const DEFAULT_TINT = {
   wheels: '#c9a24b',
   fender: '#2a2d33',
   mirrors: '#2a2c31',
+  handlebar: '#2a2c31',
   windshield: '#6d7b8c',
   decal: '#f2f2f2',
+  bag: '#2a211c',
 };
 
 /* ------------------------------------------------------------
@@ -568,18 +650,22 @@ const COLLAGE_ANCHORS = {
   wheels: [141, 424],
   fender: [585, 330],
   mirrors: [446, 128],
+  handlebar: [410, 175],
   windshield: [585, 190],
   decal: [365, 258],
+  bag: [170, 330],
 };
 
 const COLLAGE_DEFAULT = {
-  exhaust: { x: 12, y: 78, scale: 1, rot: -4 },
-  seat: { x: 62, y: 80, scale: 1, rot: 3 },
-  wheels: { x: 87, y: 48, scale: 1, rot: 4 },
-  fender: { x: 87, y: 78, scale: 1, rot: -2 },
-  mirrors: { x: 12, y: 18, scale: 1, rot: 2 },
-  windshield: { x: 37, y: 18, scale: 1, rot: -3 },
-  decal: { x: 62, y: 18, scale: 1, rot: 2 },
+  exhaust: { x: 13, y: 81, scale: 1, rot: -4 },
+  seat: { x: 36, y: 82, scale: 1, rot: 3 },
+  wheels: { x: 88, y: 50, scale: 1, rot: 4 },
+  fender: { x: 88, y: 18, scale: 1, rot: -2 },
+  mirrors: { x: 11, y: 16, scale: 1, rot: 2 },
+  handlebar: { x: 61, y: 16, scale: 1, rot: -3 },
+  windshield: { x: 35, y: 14, scale: 1, rot: -2 },
+  decal: { x: 88, y: 88, scale: 1, rot: 2 },
+  bag: { x: 64, y: 83, scale: 1, rot: 3 },
 };
 
 /* ------------------------------------------------------------
@@ -1336,6 +1422,144 @@ function imageProxy(url) {
   return '/api/image?url=' + encodeURIComponent(url);
 }
 
+/* ------------------------------------------------------------
+   Ritaglio lungo il contorno: rimuove lo sfondo bianco
+   collegato ai bordi dell'immagine, poi ritaglia il rettangolo
+   trasparente. Il risultato è un PNG pronto per il collage.
+   ------------------------------------------------------------ */
+
+const CUTOUT_CACHE = new Map();
+
+function isPaperWhite(r, g, b) {
+  return r >= 236 && g >= 236 && b >= 236 && Math.max(r, g, b) - Math.min(r, g, b) <= 16;
+}
+
+function cutoutFromImage(img) {
+  const w = img.naturalWidth || img.width;
+  const h = img.naturalHeight || img.height;
+  if (!w || !h) return null;
+
+  const src = document.createElement('canvas');
+  src.width = w;
+  src.height = h;
+  const ctx = src.getContext('2d', { willReadFrequently: true });
+  ctx.drawImage(img, 0, 0);
+
+  let imageData;
+  try {
+    imageData = ctx.getImageData(0, 0, w, h);
+  } catch (err) {
+    return null;
+  }
+  const px = imageData.data;
+  const total = w * h;
+  const seen = new Uint8Array(total);
+  const stack = [];
+
+  const visit = (idx) => {
+    if (seen[idx]) return;
+    seen[idx] = 1;
+    const p = idx * 4;
+    if (!isPaperWhite(px[p], px[p + 1], px[p + 2])) return;
+    px[p + 3] = 0;
+    const x = idx % w;
+    const y = (idx / w) | 0;
+    if (x > 0) stack.push(idx - 1);
+    if (x < w - 1) stack.push(idx + 1);
+    if (y > 0) stack.push(idx - w);
+    if (y < h - 1) stack.push(idx + w);
+  };
+
+  for (let x = 0; x < w; x++) {
+    visit(x);
+    visit((h - 1) * w + x);
+  }
+  for (let y = 0; y < h; y++) {
+    visit(y * w);
+    visit(y * w + w - 1);
+  }
+  while (stack.length) visit(stack.pop());
+
+  // Bordo morbido: i pixel chiari adiacenti allo sfondo diventano semitrasparenti.
+  const alpha = new Uint8ClampedArray(total);
+  for (let i = 0; i < total; i++) alpha[i] = px[i * 4 + 3];
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      const idx = y * w + x;
+      if (!alpha[idx]) continue;
+      const touches =
+        (x > 0 && !alpha[idx - 1]) ||
+        (x < w - 1 && !alpha[idx + 1]) ||
+        (y > 0 && !alpha[idx - w]) ||
+        (y < h - 1 && !alpha[idx + w]);
+      if (!touches) continue;
+      const p = idx * 4;
+      if (isPaperWhite(px[p], px[p + 1], px[p + 2])) px[p + 3] = 110;
+    }
+  }
+
+  // Riapplica i pixel modificati alla canvas prima di ritagliare.
+  ctx.putImageData(imageData, 0, 0);
+
+  // Ritaglia il rettangolo del prodotto.
+  let minX = w;
+  let minY = h;
+  let maxX = -1;
+  let maxY = -1;
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      if (px[(y * w + x) * 4 + 3] <= 16) continue;
+      if (x < minX) minX = x;
+      if (x > maxX) maxX = x;
+      if (y < minY) minY = y;
+      if (y > maxY) maxY = y;
+    }
+  }
+  if (maxX < minX || maxY < minY) return null;
+
+  const pad = 3;
+  minX = Math.max(0, minX - pad);
+  minY = Math.max(0, minY - pad);
+  maxX = Math.min(w - 1, maxX + pad);
+  maxY = Math.min(h - 1, maxY + pad);
+
+  const cw = maxX - minX + 1;
+  const ch = maxY - minY + 1;
+  const out = document.createElement('canvas');
+  out.width = cw;
+  out.height = ch;
+  out.getContext('2d').drawImage(src, minX, minY, cw, ch, 0, 0, cw, ch);
+  return out.toDataURL('image/png');
+}
+
+function cutoutFor(part) {
+  if (!part || !part.image) return Promise.resolve(null);
+  if (CUTOUT_CACHE.has(part.image)) return CUTOUT_CACHE.get(part.image);
+  const promise = loadImage(imageProxy(part.image))
+    .then((img) => cutoutFromImage(img))
+    .catch(() => null);
+  CUTOUT_CACHE.set(part.image, promise);
+  return promise;
+}
+
+async function enhanceCollageCutouts() {
+  const root = $('#collage-clips');
+  if (!root) return;
+  await Promise.all(
+    $$('img[data-cutout]', root).map(async (img) => {
+      const part = clipPart(img.dataset.cutout);
+      if (!part) return;
+      const url = await cutoutFor(part);
+      if (!img.isConnected) return;
+      if (url) {
+        img.src = url;
+        img.classList.add('cutout');
+      }
+      img.classList.remove('cutout-pending');
+    })
+  );
+}
+
 function collageLinesMarkup() {
   if (!st.collageLines) return '';
   return collageClips()
@@ -1344,8 +1568,14 @@ function collageLinesMarkup() {
       const sx = (pos.x / 100) * 705;
       const sy = (pos.y / 100) * 600;
       const [ax, ay] = anchor;
+      const dx = ax - sx;
+      const dy = ay - sy;
+      const dist = Math.hypot(dx, dy) || 1;
+      const off = Math.min(54, dist * 0.45);
+      const x1 = sx + (dx / dist) * off;
+      const y1 = sy + (dy / dist) * off;
       return `
-        <line x1="${sx.toFixed(1)}" y1="${sy.toFixed(1)}" x2="${ax}" y2="${ay}"
+        <line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${ax}" y2="${ay}"
           stroke="rgba(38,34,28,.6)" stroke-width="1.7" stroke-dasharray="6 4" stroke-linecap="round"/>
         <circle cx="${ax}" cy="${ay}" r="3.4" fill="#26221c" opacity=".75"/>
         <circle cx="${ax}" cy="${ay}" r="7" fill="none" stroke="#26221c" stroke-width="1" opacity=".3"/>`;
@@ -1356,24 +1586,23 @@ function collageLinesMarkup() {
 function collageClipMarkup({ cat, label, part, pos }) {
   const price = part.price ? euro(part.price) : 'prezzo da verificare';
   const image = part.image
-    ? `<img src="${esc(imageProxy(part.image))}" alt="" draggable="false" loading="lazy"
+    ? `<img src="${esc(imageProxy(part.image))}" data-cutout="${cat}" alt="" draggable="false"
+         class="cutout-pending"
          onerror="this.style.display='none';this.parentNode.classList.add('noimg')">`
     : '';
   return `
     <figure class="clip" data-cat="${cat}" tabindex="0"
       style="left:${pos.x}%;top:${pos.y}%;--clip-rot:${pos.rot}deg;--clip-scale:${pos.scale}">
-      <div class="clip-paper">
-        <span class="clip-tape" aria-hidden="true"></span>
-        <div class="clip-visual">
-          ${image}
-          <span class="clip-fallback">${esc(part.name)}</span>
-        </div>
-        <figcaption>
-          <span class="clip-cat">${esc(label)}</span>
-          <span class="clip-name">${esc(part.name)}</span>
-          <span class="clip-price">${esc(price)}</span>
-        </figcaption>
+      <div class="clip-visual${part.image ? '' : ' noimg'}">
+        ${image}
+        <span class="clip-fallback">${esc(part.name)}</span>
       </div>
+      <figcaption>
+        <span class="clip-tape" aria-hidden="true"></span>
+        <span class="clip-cat">${esc(label)}</span>
+        <span class="clip-name">${esc(part.name)}</span>
+        <span class="clip-price">${esc(price)}</span>
+      </figcaption>
       <div class="clip-tools" role="toolbar" aria-label="Regola ${esc(label)}">
         <button type="button" data-clip-act="scale-down" title="Rimpicciolisci" aria-label="Rimpicciolisci">−</button>
         <button type="button" data-clip-act="scale-up" title="Ingrandisci" aria-label="Ingrandisci">+</button>
@@ -1497,6 +1726,7 @@ function renderBike() {
     selectedClip = null;
   }
   syncClipControls();
+  if (collage) void enhanceCollageCutouts();
 }
 
 function refreshColors() {
@@ -2118,8 +2348,16 @@ function wrapCanvasText(ctx, text, maxWidth, maxLines) {
   return lines;
 }
 
-function loadClipImage(part) {
+async function loadClipImage(part) {
   if (!part || !part.image) return Promise.resolve(null);
+  const cut = await cutoutFor(part);
+  if (cut) {
+    try {
+      return await loadImage(cut);
+    } catch (err) {
+      /* fallback all'immagine originale */
+    }
+  }
   return loadImage(imageProxy(part.image)).catch(() => null);
 }
 
@@ -2193,8 +2431,12 @@ async function exportCollagePNG() {
       const sy = pad + (pos.y / 100) * innerH;
       const ax = pad + (anchor[0] / 705) * innerW;
       const ay = pad + (anchor[1] / 600) * innerH;
+      const dx = ax - sx;
+      const dy = ay - sy;
+      const dist = Math.hypot(dx, dy) || 1;
+      const off = Math.min(54 * k, dist * 0.45);
       ctx.beginPath();
-      ctx.moveTo(sx, sy);
+      ctx.moveTo(sx + (dx / dist) * off, sy + (dy / dist) * off);
       ctx.lineTo(ax, ay);
       ctx.stroke();
       ctx.setLineDash([]);
@@ -2214,11 +2456,9 @@ async function exportCollagePNG() {
     ctx.restore();
   }
 
-  // Ritagli
-  const clipW = 0.24 * 705 * k;
-  const paperPad = 7 * k;
-  const captionH = 50 * k;
-  const cardH = paperPad * 2 + (clipW - paperPad * 2) + captionH;
+  // Ritagli: immagine scontornata + etichetta di carta
+  const clipW = 0.26 * innerW;
+  const maxCutH = clipW * 0.96;
 
   for (const { cat, label, part, pos } of clips) {
     const img = await loadClipImage(part);
@@ -2231,71 +2471,87 @@ async function exportCollagePNG() {
     ctx.rotate(rot);
     ctx.scale(pos.scale, pos.scale);
 
-    // Carta del ritaglio
-    ctx.save();
-    ctx.shadowColor = 'rgba(0,0,0,.42)';
-    ctx.shadowBlur = 22 * k;
-    ctx.shadowOffsetY = 9 * k;
-    ctx.fillStyle = '#fdfaf0';
-    ctx.fillRect(-clipW / 2, -cardH / 2, clipW, cardH);
-    ctx.restore();
+    let dw = clipW;
+    let dh = clipW * 0.75;
+    if (img && img.width && img.height) {
+      const ratio = img.height / img.width;
+      dw = clipW;
+      dh = clipW * ratio;
+      if (dh > maxCutH) {
+        dh = maxCutH;
+        dw = maxCutH / ratio;
+      }
+    }
 
-    const vx = -clipW / 2 + paperPad;
-    const vy = -cardH / 2 + paperPad;
-    const vw = clipW - paperPad * 2;
-    const vh = vw;
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(vx, vy, vw, vh);
-
+    // Immagine scontornata con ombra soffice, senza scheda bianca.
     if (img) {
-      const r = Math.min(vw / img.width, vh / img.height);
-      const dw = img.width * r;
-      const dh = img.height * r;
-      ctx.drawImage(img, vx + (vw - dw) / 2, vy + (vh - dh) / 2, dw, dh);
-      ctx.strokeStyle = 'rgba(0,0,0,.08)';
-      ctx.lineWidth = 1;
-      ctx.strokeRect(vx, vy, vw, vh);
+      ctx.save();
+      ctx.shadowColor = 'rgba(0,0,0,.42)';
+      ctx.shadowBlur = 18 * k;
+      ctx.shadowOffsetY = 8 * k;
+      ctx.drawImage(img, -dw / 2, -dh / 2, dw, dh);
+      ctx.restore();
     } else {
+      ctx.save();
+      ctx.shadowColor = 'rgba(0,0,0,.3)';
+      ctx.shadowBlur = 14 * k;
+      ctx.shadowOffsetY = 6 * k;
       ctx.fillStyle = '#f7f2e4';
-      ctx.fillRect(vx, vy, vw, vh);
+      ctx.fillRect(-dw / 2, -dh / 2, dw, dh);
+      ctx.restore();
       ctx.fillStyle = '#6d6250';
       ctx.font = `700 ${Math.round(17 * k)}px Arial, Helvetica, sans-serif`;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      const lines = wrapCanvasText(ctx, part.name, vw - 24 * k, 3);
+      const lines = wrapCanvasText(ctx, part.name, dw - 24 * k, 3);
       lines.forEach((line, i) => {
-        ctx.fillText(line, vx + vw / 2, vy + vh / 2 + (i - (lines.length - 1) / 2) * 22 * k);
+        ctx.fillText(line, 0, (i - (lines.length - 1) / 2) * 22 * k);
       });
     }
 
-    // Nastro adesivo sul ritaglio
+    // Etichetta di carta appoggiata sotto il ritaglio.
+    const labelW = Math.max(dw * 0.78, clipW * 0.62);
+    const padX = 9 * k;
+    ctx.font = `800 ${Math.round(10.5 * k)}px Arial, Helvetica, sans-serif`;
+    const nameLines = wrapCanvasText(ctx, part.name, labelW - padX * 2, 2);
+    const labelH = (12 + 11 + nameLines.length * 13 + 14) * k;
+    const labelX = -labelW / 2;
+    const labelY = dh / 2 - labelH * 0.22;
+
     ctx.save();
-    ctx.translate(0, -cardH / 2 + 2);
-    ctx.rotate((-1.5 * Math.PI) / 180);
-    ctx.fillStyle = 'rgba(232,218,174,.62)';
-    ctx.fillRect(-clipW * 0.24, -9 * k, clipW * 0.48, 18 * k);
+    ctx.rotate((1.2 * Math.PI) / 180);
+    ctx.shadowColor = 'rgba(0,0,0,.3)';
+    ctx.shadowBlur = 10 * k;
+    ctx.shadowOffsetY = 4 * k;
+    ctx.fillStyle = '#fdfaf0';
+    ctx.fillRect(labelX, labelY, labelW, labelH);
     ctx.restore();
 
-    // Didascalia
-    const left = -clipW / 2 + paperPad + 3 * k;
-    const top = vy + vh + 17 * k;
+    // Nastro adesivo in cima all'etichetta.
+    ctx.save();
+    ctx.translate(0, labelY + 1 * k);
+    ctx.rotate((-2.2 * Math.PI) / 180);
+    ctx.fillStyle = 'rgba(232,218,174,.68)';
+    ctx.fillRect(-labelW * 0.16, -7 * k, labelW * 0.32, 14 * k);
+    ctx.restore();
+
+    const textLeft = labelX + padX;
     ctx.textAlign = 'left';
     ctx.textBaseline = 'alphabetic';
     ctx.fillStyle = '#8a7c62';
     ctx.font = `700 ${Math.round(8 * k)}px "Courier New", monospace`;
-    ctx.fillText(String(label).toUpperCase(), left, top);
+    ctx.fillText(String(label).toUpperCase(), textLeft, labelY + 17 * k);
 
     ctx.fillStyle = '#26221b';
     ctx.font = `800 ${Math.round(10.5 * k)}px Arial, Helvetica, sans-serif`;
-    const nameLines = wrapCanvasText(ctx, part.name, clipW - paperPad * 2 - 4 * k, 2);
     nameLines.forEach((line, i) => {
-      ctx.fillText(line, left, top + (15 + i * 13) * k);
+      ctx.fillText(line, textLeft, labelY + (30 + i * 13) * k);
     });
 
     ctx.fillStyle = '#a6431f';
     ctx.font = `700 ${Math.round(10.5 * k)}px "Courier New", monospace`;
     const price = part.price ? euro(part.price) : 'prezzo da verificare';
-    ctx.fillText(price, left, top + (15 + nameLines.length * 13 + 4) * k);
+    ctx.fillText(price, textLeft, labelY + (30 + nameLines.length * 13 + 4) * k);
 
     ctx.restore();
   }

@@ -1,13 +1,14 @@
 # MotoLab — configuratore visivo per la tua moto
 
 Prototipo funzionante di un configuratore web: scegli il modello, applichi un tema,
-monti scarico, sella, cerchi, parafango, specchietti, cupolino e livrea, e vedi la moto
-aggiornarsi in tempo reale con il preventivo e i link ai negozi.
+monti scarico, sella, cerchi, parafango, specchietti, manubrio, cupolino, livrea e borse,
+e vedi la moto aggiornarsi in tempo reale con il preventivo e i link ai negozi.
 
 L'MVP è centrato sulla **Benelli Leoncino 250** e su un **catalogo di prodotti reali**.
-La resa principale è il **collage**: le foto dei prodotti vengono ritagliate dai negozi e
-incollate sulla moto come ritagli di rivista, con nastro adesivo, didascalie e linee che
-puntano al punto giusto.
+La resa principale è il **collage**: le foto dei prodotti vengono scontornate lungo il
+loro contorno e appoggiate sulla moto come ritagli di rivista, con etichette di carta,
+nastro adesivo e linee che puntano al punto giusto. Niente schede bianche attorno ai
+prodotti: resta solo l'oggetto ritagliato.
 
 Nessuna dipendenza: solo HTML, CSS, JavaScript e un piccolo server Python per l'import
 dei link e il proxy delle immagini.
@@ -35,13 +36,15 @@ Per cambiare porta: `python3 server.py 8080` (oppure `./avvia.sh 8080`).
 - **4 modelli** di partenza con estetica diversa (naked, sport, scrambler); il default è
   la **Benelli Leoncino 250**.
 - **5 temi** completi (Corsa, Stealth, Gulf, Neon, Retrò) più l'**Argento** di serie.
-- **7 categorie di parti**: scarico, sella, cerchi, parafango, specchietti, cupolino, livrea.
+- **9 categorie di parti**: scarico, sella, cerchi, parafango, specchietti, manubrio,
+  cupolino, livrea, borse.
 - **Colori su misura** per serbatoio, codino, sella, cerchi, telaio, scarico, dettagli e cupolino.
 - **Anteprima live** con confronto "Originale" a un clic.
 - **Tre modalità di resa**: vettoriale (SVG stilizzato), **foto** (render della Leoncino
   250 con ricoloritura a maschere) e **collage** (moodboard con i prodotti reali).
 - **Catalogo reale** per la Leoncino 250: prodotti verificati, prezzi, link al negozio e
-  immagini. Le categorie senza aftermarket verificato mostrano solo la parte di serie.
+  immagini. Le categorie senza aftermarket verificato mostrano solo la parte di serie;
+  i prodotti universali sono segnalati come tali, con le misure da verificare.
 - **Foto personale**: carichi una foto laterale della tua moto e allinei le maschere con
   i cursori di calibrazione.
 - **Preventivo** con totale e rimozione rapida delle singole parti.
@@ -95,10 +98,12 @@ combaciano con la carrozzeria. Le impostazioni restano salvate nel browser. Con
 
 ### Modalità collage
 
-Scegli una parte dal catalogo e apri **Collage**: la foto del prodotto viene ritagliata e
-incollata sul render con una cornice di carta, nastro adesivo e didascalia (categoria,
-nome, prezzo). Una linea tratteggiata collega ogni ritaglio al punto corrispondente sulla
-moto.
+Scegli una parte dal catalogo e apri **Collage**: la foto del prodotto viene scontornata
+lungo il contorno e appoggiata sul render senza cornice, con un'etichetta di carta
+(categoria, nome, prezzo) e nastro adesivo. L'app rimuove lo sfondo bianco collegato ai
+bordi dell'immagine e ritaglia il rettangolo del prodotto; il risultato è un PNG
+trasparente, non una scheda. Una linea tratteggiata collega ogni ritaglio al punto
+corrispondente sulla moto.
 
 - **Trascina** un ritaglio per spostarlo.
 - Selezionalo e usa i pulsanti **− / + / ⟲ / ⟳** per scalarlo e ruotarlo, oppure i cursori
@@ -109,7 +114,8 @@ moto.
 - **Ripristina ritagli** riporta tutto alla posizione iniziale.
 
 La posizione dei ritagli e la scelta delle linee vengono salvate in `localStorage`. Anche
-l'export PNG ricostruisce il banco completo: carta, stampa, nastro, linee e didascalie.
+l'export PNG ricostruisce il banco completo: ritagli trasparenti, ombre, etichette di
+carta, nastro e linee guida.
 
 Il collage è un **moodboard**, non una simulazione di montaggio: proporzioni, forme e
 compatibilità del prodotto vanno verificate sul sito del venditore.
@@ -122,6 +128,8 @@ solo prodotti verificati sui negozi:
 | Categoria | Prodotto | Prezzo | Negozio |
 | --- | --- | --- | --- |
 | Scarico | MSR Quadstreet Two-Tone | € 333,84 | MSR Distributore Europe |
+| Scarico | Craftride Forte cromo (universale) | € 71,99 | Motea |
+| Sella | Craftride Flat café racer (universale) | € 67,99 | Motea |
 | Cupolino | Puig Custom II 0336H | € 96,99 | MotociclistaOnline.it |
 | Cupolino | Puig Touring 0856W | € 128,99 | MotociclistaOnline.it |
 | Cupolino | Barracuda Aerosport BL5300 | € 149,90 | MotociclistaOnline.it |
@@ -130,9 +138,25 @@ solo prodotti verificati sui negozi:
 | Parafango | Portatarga Barracuda BL5104-SN | € 64,90 | MotociclistaOnline.it |
 | Specchietti | Barracuda Skin-X Bar End | € 169,00 | MotociclistaOnline.it |
 | Specchietti | Barracuda Skin-R Bar End | € 149,00 | MotociclistaOnline.it |
+| Specchietti | Zaddox SP1 Bar End | € 91,99 | Motea |
+| Manubrio | Zaddox Clip-On 41 mm | € 55,99 | Motea |
+| Manubrio | Barracuda Racing 22 | € 54,90 | Barracuda Moto |
+| Borse | Craftride Elgin 2,4 L | € 47,99 | Motea |
 
-Sella, cerchi e livrea non hanno un aftermarket verificato: l'app lo dice esplicitamente e
-lascia la parte di serie. Non viene inventato nessun prodotto.
+Dettagli da verificare prima dell'acquisto:
+
+- **Craftride Forte**: universale, 43 cm × Ø 8 cm, senza EG-BE/TÜV; controllare il
+  raccordo al collettore della Leoncino 250.
+- **Craftride Flat**: universale 53×25×8,5 cm; richiede adattamenti al telaio.
+- **Zaddox Clip-On**: per forcella da 41 mm, barra 22 mm; verificare il diametro reale
+  degli steli e lo spazio per i cablaggi.
+- **Barracuda Racing 22**: manubrio universale Ø 22 mm; verificare ingombri e lunghezza.
+- **Zaddox SP1**: bar-end per manubri 22–25 mm, coppia omologata ECE, specchio Ø 10 cm.
+- **Craftride Elgin**: borsa universale 25 cm × Ø 11 cm, cinghie incluse.
+
+Cerchi e livrea non hanno un aftermarket verificato: l'app lo dice esplicitamente e lascia
+la parte di serie. Non viene inventato nessun prodotto. **LeoVince non è in catalogo**:
+il catalogo ufficiale non riporta applicazioni per la Leoncino 250 (solo 500 e 800).
 
 Prezzi e disponibilità cambiano: ogni scheda apre il negozio, che resta la fonte da
 controllare prima dell'acquisto.
@@ -185,7 +209,8 @@ in `PHOTO` e le relative ancore.
 4. **Compatibilità reale**: anno, versione, attacchi, misure e omologazioni non sono
    verificati dall'app. Un prodotto vero deve incrociare questi dati sul sito del venditore.
 5. **Copertura del catalogo**: solo le categorie con prodotti verificati hanno alternative.
-   Sella, cerchi e livrea restano di serie finché non vengono trovati prodotti affidabili.
+   Cerchi e livrea restano di serie finché non vengono trovati prodotti affidabili; sella,
+   scarico, manubrio e borse includono modelli universali da adattare.
 6. **Scraping e condizioni d'uso**: molti e-commerce vietano l'estrazione automatica dei
    contenuti. Per un prodotto commerciale conviene usare feed affiliati (Awin, Tradedoubler,
    Amazon PA-API), API ufficiali o un catalogo curato con deep link, rispettando robots.txt
@@ -201,7 +226,7 @@ in `PHOTO` e le relative ancore.
 
 ## Prossimi passi consigliati
 
-1. **Ampliare il catalogo verificato** per la Leoncino 250 (sella, cerchi, livrea) e
+1. **Ampliare il catalogo verificato** per la Leoncino 250 (cerchi, livrea) e
    aggiungere altri modelli con lo stesso schema `CATALOG`.
 2. **Migliorare il collage**: più controlli di ritaglio, didascalie modificabili e
    possibilità di esportare anche un elenco testuale della configurazione.
